@@ -20,7 +20,9 @@ import { ref } from 'vue'
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                width: 100%;
+                max-width: 33.75rem;
+                margin: auto;
+                margin-bottom: variables.$spacing-300;
         }
         
         .password-display {

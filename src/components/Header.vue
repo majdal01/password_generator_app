@@ -17,5 +17,6 @@ import { ref } from 'vue'
         @include mixins.text-preset-2;
         color: variables.$grey-600;
         text-align: center;
+        margin-bottom: variables.$spacing-300;
     }
 </style>
