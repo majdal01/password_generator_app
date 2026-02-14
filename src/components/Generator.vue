@@ -47,6 +47,9 @@
                 @include text-preset-1;
                 color: $green-200;
             }
-        }
+    }
+        input[type="range"] {
+                width: 100%;
+            }
     }
 </style>
