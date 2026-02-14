@@ -1,0 +1,45 @@
+/* Spacing */
+$spacing-2300: 11.5rem; //184px
+$spacing-2200: 11rem; //176px
+$spacing-2000: 10rem; //160px
+$spacing-1600: 8rem; //128px
+$spacing-1300: 6.5rem; //104px
+$spacing-1000: 5rem; //80px
+$spacing-700: 3.5rem; //56px
+$spacing-400: 2rem; //32px
+$spacing-300: 1.5rem; //24px
+$spacing-200: 1rem; //16px
+$spacing-100: 0.5rem; //8px
+
+/* Colors */
+$white: hsl(0, 100%, 100%);
+$black: hsl(0, 0%, 0%);
+
+$grey-950: #08070B;
+$grey-900: #14131B;
+$grey-850: #18171F;
+$grey-800: #24232C;
+$grey-700: #54535B;
+$grey-600: #817D92;
+$grey-200: #E6E5EA;
+
+$green-200: #A4FFAF;
+
+$yellow-300: #F8CD65;
+
+$orange-400: #FB7C58;
+
+$red-500: #F64A4A;
+
+$gradient-1: linear-gradient(180deg, #14131B 0%, #08070B 100%);
+
+/* Typography */
+@font-face {
+  font-family: 'JetBrains Mono', monospace;
+  src: url('/assets/fonts/static/JetBrainsMono-Bold.ttf') format('truetype');
+}
+$font-family: 'JetBrains Mono', monospace;
+
+
+
+

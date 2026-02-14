@@ -10,6 +10,12 @@ import { ref } from 'vue'
   
 </template>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+    @use '/src/scss/variables';
+    @use '/src/scss/mixins';
+    h1 {
+        @include mixins.text-preset-2;
+        color: variables.$grey-600;
+        text-align: center;
+    }
 </style>
