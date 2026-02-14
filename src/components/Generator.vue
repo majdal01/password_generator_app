@@ -1,11 +1,19 @@
 <script setup>
-import { ref } from 'vue'
-
+    import { ref } from 'vue'
+    const sliderValue = ref(0);
 </script>
 
 <template>
     <main>
-        Character Length
+        <div>
+            <div class="sliderlabel-container">
+                <h2>Character Length</h2>
+                <label>
+                    {{ sliderValue }}
+                </label>
+            </div>
+                <input type="range" v-model="sliderValue" min="0" max="20">
+        </div>
 
         Include Uppercase Letters
         Include Lowercase Letters
@@ -20,6 +28,25 @@ import { ref } from 'vue'
   
 </template>
 
-<style scoped>
+<style lang="scss">
+    main {
+        background-color: $grey-800;
+        max-width: 33.75rem;
 
+         .sliderlabel-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-200;
+            padding: $spacing-200 $spacing-300;
+            h2 {
+                @include text-preset-3;
+                color: $grey-200;
+            }
+            label{
+                @include text-preset-1;
+                color: $green-200;
+            }
+        }
+    }
 </style>

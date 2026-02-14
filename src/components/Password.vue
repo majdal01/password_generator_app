@@ -12,22 +12,20 @@ import { ref } from 'vue'
 </template>
 
 <style lang="scss">
-        @use '/src/scss/variables';
-        @use '/src/scss/mixins';
         .password-container {
-                background-color: variables.$grey-800;
-                padding: variables.$spacing-200 variables.$spacing-300;
+                background-color: $grey-800;
+                padding: $spacing-200 $spacing-300;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 max-width: 33.75rem;
                 margin: auto;
-                margin-bottom: variables.$spacing-300;
+                margin-bottom: $spacing-300;
         }
         
         .password-display {
-                @include mixins.text-preset-1;
-                color: variables.$grey-700;
+                @include text-preset-1;
+                color: $grey-700;
         }
 
         #copy-icon {
