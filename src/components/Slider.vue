@@ -5,24 +5,24 @@
 
 <template>
 
-        <div>
-            <div class="sliderlabel-container">
-                <h2>Character Length</h2>
-                <label>
-                    {{ sliderValue }}
-                </label>
-            </div>
-                                <input
-                                    type="range"
-                                    v-model="sliderValue"
-                                    min="0"
-                                    max="20"
-                                    :style="{
-                                        background: `linear-gradient(to right, ${$green-200} 0%, ${$green-200} ${(sliderValue/20)*100}%, ${$grey-850} ${(sliderValue/20)*100}%, ${$grey-850} 100%)`
-                                    }"
-                                    class="custom-slider"
-                                >
+    <div>
+        <div class="sliderlabel-container">
+            <h2>Character Length</h2>
+            <label>
+                {{ sliderValue }}
+            </label>
         </div>
+            <input
+                type="range"
+                v-model="sliderValue"
+                min="0"
+                max="20"
+                :style="{
+                    background: `linear-gradient(to right, ${$green-200} 0%, ${$green-200} ${(sliderValue/20)*100}%, ${$grey-850} ${(sliderValue/20)*100}%, ${$grey-850} 100%)`
+                }"
+                class="custom-slider"
+            >
+    </div>
   
 </template>
 

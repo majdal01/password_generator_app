@@ -2,6 +2,7 @@
   import Header from './components/Header.vue'
   import Password from './components/Password.vue'
   import Slider from './components/Slider.vue'
+  import Strength from './components/Strength.vue';
   import Tickoff from './components/Tickoff.vue';
 </script>
 
@@ -10,7 +11,8 @@
     <Password/>
   <main>
     <Slider/>
-    <Tickoff/>      
+    <Tickoff/>    
+    <Strength/>
   </main>
 </template>
 

@@ -7,10 +7,14 @@ export default defineConfig({
   css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `
-            @import "/src/scss/variables";
-            @import "/src/scss/mixins";
-          `
+          additionalData: (content, filename) => {
+            // Avoid injecting into partials like _variables.scss to prevent circular imports.
+            if (/\/_[^/]+\.scss$/.test(filename) || filename.endsWith('/index.scss')) {
+              return content;
+            }
+
+            return `@use "/src/scss/variables" as *;\n@use "/src/scss/mixins" as *;\n@use "/src/scss/buttons" as *;\n${content}`;
+          }
         }
       }
   }

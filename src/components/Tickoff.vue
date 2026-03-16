@@ -6,22 +6,19 @@
 <template>
 
     <section class="tickoff-container">
-        <label>
-        <input type="checkbox" value="uppercase" /> Include Uppercase Letters
+        <label for="uppercase">
+        <input type="checkbox" value="uppercase" id="uppercase" /> Include Uppercase Letters
         </label>
-        <label>
-        <input type="checkbox" value="lowercase" /> Include Lowercase Letters
+        <label for="lowercase">
+        <input type="checkbox" value="lowercase" id="lowercase" /> Include Lowercase Letters
         </label>
-        <label>
-        <input type="checkbox" value="numbers" /> Include Numbers
+        <label  for="numbers">
+        <input type="checkbox" value="numbers" id="numbers" /> Include Numbers
         </label>
-        <label>
-        <input type="checkbox" value="symbols" /> Include Symbols
+        <label for="symbols">
+        <input type="checkbox" value="symbols" id="symbols" /> Include Symbols
         </label>
     </section>
-        Strength
-
-        Generate
   
 </template>
 
