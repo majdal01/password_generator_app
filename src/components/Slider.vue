@@ -1,6 +1,15 @@
 <script setup>
-    import { ref } from 'vue'
-    const sliderValue = ref(0);
+    import { computed, ref } from 'vue'
+
+    const sliderValue = ref(0)
+    const sliderMax = 20
+    const activeTrackColor = '#A4FFAF'
+    const inactiveTrackColor = '#18171F'
+
+    const sliderBackground = computed(() => {
+        const percentage = (sliderValue.value / sliderMax) * 100
+        return `linear-gradient(to right, ${activeTrackColor} 0%, ${activeTrackColor} ${percentage}%, ${inactiveTrackColor} ${percentage}%, ${inactiveTrackColor} 100%)`
+    })
 </script>
 
 <template>
@@ -14,11 +23,11 @@
         </div>
             <input
                 type="range"
-                v-model="sliderValue"
+                v-model.number="sliderValue"
                 min="0"
-                max="20"
+                :max="sliderMax"
                 :style="{
-                    background: `linear-gradient(to right, ${$green-200} 0%, ${$green-200} ${(sliderValue/20)*100}%, ${$grey-850} ${(sliderValue/20)*100}%, ${$grey-850} 100%)`
+                    background: sliderBackground
                 }"
                 class="custom-slider"
             >
@@ -48,7 +57,6 @@
             -moz-appearance: none;
             appearance: none;
             height: 0.5rem;
-            border-radius: 0.25rem;
             background: $grey-850;
             transition: background 0.3s;
         }
@@ -67,11 +75,11 @@
         .custom-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            background: $green-200;
+            background: $white;
             width: 1.5rem;
             height: 1.5rem;
             border-radius: 50%;
-            border: 2px solid $green-200;
+            border: 2px solid $white;
             cursor: pointer;
             margin-top: -0.5rem;
             transition: background 0.2s, border 0.2s;
@@ -81,11 +89,11 @@
             border: 2px solid $green-200;
         }
         .custom-slider::-moz-range-thumb {
-            background: $green-200;
+            background: $white;
             width: 1.75rem;
             height: 1.75rem;
             border-radius: 50%;
-            border: 2px solid $green-200;
+            border: 2px solid $white;
             cursor: pointer;
             transition: background 0.2s, border 0.2s;
         }
@@ -94,11 +102,11 @@
             border: 2px solid $green-200;
         }
         .custom-slider::-ms-thumb {
-            background: $green-200;
+            background: $white;
             width: 1.5rem;
             height: 1.5rem;
             border-radius: 50%;
-            border: 2px solid $green-200;
+            border: 2px solid $white;
             cursor: pointer;
             transition: background 0.2s, border 0.2s;
         }

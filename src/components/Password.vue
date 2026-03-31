@@ -19,6 +19,7 @@ import { ref } from 'vue'
                 justify-content: space-between;
                 align-items: center;
                 max-width: 33.75rem;
+                width: 100%;
                 margin: auto;
                 margin-bottom: $spacing-300;
         }

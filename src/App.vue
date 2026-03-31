@@ -17,9 +17,26 @@
 </template>
 
 <style lang="scss">
-         main {
-            background-color: $grey-800;
-            min-width: 33.75rem;
-            padding: $spacing-200 $spacing-300;
-        }
+    #app {
+      width: min(100%, 33.75rem);
+      padding-inline: $spacing-200;
+    }
+
+    main {
+      background-color: $grey-800;
+      width: 100%;
+      max-width: 33.75rem;
+      margin: 0 auto;
+      padding: $spacing-200 $spacing-300;
+    }
+
+    @media (max-width: 600px) {
+      #app {
+        padding-inline: $spacing-100;
+      }
+
+      main {
+        padding: $spacing-200;
+      }
+    }
 </style>

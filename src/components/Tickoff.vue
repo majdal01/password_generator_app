@@ -34,15 +34,15 @@
             color: $grey-200;
             display: flex;
             align-items: center;
-            gap: $spacing-300;    
+            gap: $spacing-300;
+            overflow-wrap: anywhere;
         }
         input[type="checkbox"] {
             appearance: none;
             width: 1.25rem;
             height: 1.25rem;
-            border: 2px solid $green-200;
+            border: 2px solid $white;
             background: transparent;
-            border-radius: 0.25rem;
             cursor: pointer;
             position: relative;
         }
@@ -63,6 +63,15 @@
             position: absolute;
             top: 0rem;
             left: 0.25rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .tickoff-container {
+            label {
+                @include text-preset-4;
+                gap: $spacing-200;
+            }
         }
     }
 

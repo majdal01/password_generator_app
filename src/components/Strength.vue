@@ -25,6 +25,7 @@
     .strength-container {
         display: flex;
         justify-content: space-between;
+        gap: $spacing-200;
         align-items: center;
         margin-bottom: $spacing-400;
         background-color: $grey-850;
@@ -36,7 +37,7 @@
             color: $grey-600;
         }
         #mediump {
-            @include text-preset-1;
+            @include text-preset-2;
             text-transform: uppercase;
             letter-spacing: 5%;
             color: $grey-200;
@@ -51,14 +52,14 @@
         }
         .validator-container {
             display: flex;
-            align-items: right;
+            align-items: center;
             gap: $spacing-200;
 
             .color-container {
                 gap: 0.5rem;
                 .bar {
-                    width: .75rem;
-                    height: 2.3rem;
+                    width: .6rem;
+                    height: 1.8rem;
                     border: 2px solid $grey-200;
                 }
             }
@@ -67,6 +68,21 @@
     #generate-button {
         @include button;
         margin-bottom: $spacing-400;
+    }
+
+    @media (max-width: 600px) {
+        .strength-container {
+            gap: $spacing-100;
+            padding: $spacing-200;
+
+            #mediump {
+                @include text-preset-3;
+            }
+
+            .validator-container {
+                gap: $spacing-100;
+            }
+        }
     }
 
 </style>
