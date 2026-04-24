@@ -1,13 +1,24 @@
 <script setup>
-    import { computed, ref } from 'vue'
+    import { computed } from 'vue'
 
-    const sliderValue = ref(0)
-    const sliderMax = 20
+    const props = defineProps({
+        modelValue: {
+            type: Number,
+            required: true
+        },
+        sliderMax: {
+            type: Number,
+            default: 20
+        }
+    })
+
+    const emit = defineEmits(['update:modelValue'])
+
     const activeTrackColor = '#A4FFAF'
     const inactiveTrackColor = '#18171F'
 
     const sliderBackground = computed(() => {
-        const percentage = (sliderValue.value / sliderMax) * 100
+        const percentage = (props.modelValue / props.sliderMax) * 100
         return `linear-gradient(to right, ${activeTrackColor} 0%, ${activeTrackColor} ${percentage}%, ${inactiveTrackColor} ${percentage}%, ${inactiveTrackColor} 100%)`
     })
 </script>
@@ -18,14 +29,15 @@
         <div class="sliderlabel-container">
             <h2>Character Length</h2>
             <label>
-                {{ sliderValue }}
+                <span>{{ props.modelValue }}</span>
             </label>
         </div>
             <input
                 type="range"
-                v-model.number="sliderValue"
                 min="0"
-                :max="sliderMax"
+                :max="props.sliderMax"
+                :value="props.modelValue"
+                @input="emit('update:modelValue', Number($event.target.value))"
                 :style="{
                     background: sliderBackground
                 }"
@@ -137,6 +149,17 @@
         }
         .custom-slider::-ms-fill-upper {
             background: $grey-850;
+        }
+
+        @media (max-width: 600px) {
+            .sliderlabel-container {
+                h2 {
+                    @include text-preset-4;
+                }
+                label{
+                    @include text-preset-2;
+                }
+            }
         }
 
 </style>

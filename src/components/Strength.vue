@@ -1,22 +1,34 @@
 <script setup>
-    import { ref } from 'vue'
+    const props = defineProps({
+        label: String,
+        score: Number
+    })
 
+    const emit = defineEmits(['generate'])
 </script>
 
 <template>
     <div class="strength-container">
         <p id="strengthp">Strength</p>
         <div class="validator-container">
-              <p id="mediump">Medium</p>
+              <p id="mediump">{{props.label}}</p>
               <div class="color-container">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar active"></div>
-                <div class="bar active"></div>  
-              </div>
+                <div 
+                    v-for="i in 4" 
+                    :key="i" 
+                    class="bar"
+                    :class="{ 
+                        'active': i <= score,
+                        'too-weak': score === 1 && i <= score,
+                        'weak': score === 2 && i <= score,
+                        'medium': score === 3 && i <= score,
+                        'strong': score === 4 && i <= score
+                    }"
+                ></div>
+            </div>
         </div>
     </div>
-    <button id="generate-button">Generate <span><img src="/assets/images/icon-arrow-right.svg" alt="generate"></span></button>
+    <button @click="emit('generate')" id="generate-button">Generate <span><img src="/assets/images/icon-arrow-right.svg" alt="generate"></span></button>
 </template>
 
 
@@ -56,14 +68,21 @@
             gap: $spacing-200;
 
             .color-container {
+                display: flex;
                 gap: 0.5rem;
+
                 .bar {
                     width: .6rem;
                     height: 1.8rem;
                     border: 2px solid $grey-200;
+                    
+                    &.too-weak { background-color: $yellow-300; border-color: $yellow-300; }
+                    &.weak { background-color: $yellow-300; border-color: $yellow-300; }
+                    &.medium { background-color: $yellow-300; border-color: $yellow-300; }
+                    &.strong { background-color: $yellow-300; border-color: $yellow-300; }
                 }
-            }
-        }   
+            }   
+        }
     }
     #generate-button {
         @include button;

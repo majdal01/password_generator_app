@@ -17,4 +17,10 @@ import { ref } from 'vue'
         text-align: center;
         margin-bottom: $spacing-300;
     }
+
+    @media (max-width: 600px) {
+        h1 {
+            @include text-preset-4;
+        }
+    }
 </style>

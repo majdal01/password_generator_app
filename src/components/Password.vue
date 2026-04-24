@@ -1,12 +1,34 @@
 <script setup>
 import { ref } from 'vue'
 
+defineProps({
+    password: String
+})
+
+const emit = defineEmits(['copy'])
+const showCopyMessage = ref(false)
+
+const handleCopy = () => {
+        emit('copy')
+        showCopyMessage.value = true
+        setTimeout(() => {
+            showCopyMessage.value = false
+        }, 2000)
+}
+
 </script>
 
 <template>
     <div class="password-container">
-        <p class="password-display">P4$5W0rD!</p>
-        <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="Copy Icon">
+        <p class="password-display" v-if="password">{{ password }}</p>
+        <p v-else class="placeholder">P4$$W0rD!</p>
+
+        <div class="copy-wrapper">
+                <span v-if="showCopyMessage" class="copy-feedback">COPIED</span>
+                <button class="copy-btn" @click="handleCopy" :disabled="!password" aria-label="Copy Password">
+                    <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="Copy Icon">
+                </button>
+        </div>
     </div>
   
 </template>
@@ -26,10 +48,59 @@ import { ref } from 'vue'
         
         .password-display {
                 @include text-preset-1;
-                color: $grey-700;
+                color: $grey-200;
         }
 
+        .placeholder {
+                @include text-preset-1;
+                color: $grey-700;
+                opacity: 0.5;
+        }
+
+        .copy-wrapper {
+                display: flex;
+                align-items: center;
+                gap: $spacing-200;
+        }
+
+        .copy-feedback {
+                @include text-preset-3; 
+                color: $green-200;
+                text-transform: uppercase;
+        }
+
+        .copy-btn {
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                transition: opacity 0.2s;
+
+                &:disabled {
+                        cursor: not-allowed;
+                        opacity: 0.3;
+                }
+        }
+                
         #copy-icon {
                 cursor: pointer;
         }
+
+
+        @media (max-width: 600px) {
+                .placeholder {
+                        @include text-preset-2;
+                        color: $grey-700;
+                        opacity: 0.5;
+                }
+
+                .copy-feedback {
+                        @include text-preset-4; 
+                }
+
+                .password-display, .placeholder {
+                        @include text-preset-2;
+                }
+        }
+        
 </style>
