@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 
 defineProps({
-    password: String
+    password: String,
+    isCopied: Boolean
 })
 
 const emit = defineEmits(['copy'])
@@ -10,10 +11,6 @@ const showCopyMessage = ref(false)
 
 const handleCopy = () => {
         emit('copy')
-        showCopyMessage.value = true
-        setTimeout(() => {
-            showCopyMessage.value = false
-        }, 2000)
 }
 
 </script>
@@ -24,7 +21,7 @@ const handleCopy = () => {
         <p v-else class="placeholder">P4$$W0rD!</p>
 
         <div class="copy-wrapper">
-                <span v-if="showCopyMessage" class="copy-feedback">COPIED</span>
+                <span v-if="isCopied" class="copy-feedback">COPIED</span>
                 <button class="copy-btn" @click="handleCopy" :disabled="!password" aria-label="Copy Password">
                     <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="Copy Icon">
                 </button>
@@ -79,6 +76,10 @@ const handleCopy = () => {
                 &:disabled {
                         cursor: not-allowed;
                         opacity: 0.3;
+                }
+                &:focus-visible {
+                        outline: 2px solid $green-200;
+                        outline-offset: 2px;
                 }
         }
                 

@@ -76,10 +76,10 @@
                     height: 1.8rem;
                     border: 2px solid $grey-200;
                     
-                    &.too-weak { background-color: $yellow-300; border-color: $yellow-300; }
-                    &.weak { background-color: $yellow-300; border-color: $yellow-300; }
+                    &.too-weak { background-color: $red-500; border-color: $red-500; }
+                    &.weak { background-color: $orange-400; border-color: $orange-400; }
                     &.medium { background-color: $yellow-300; border-color: $yellow-300; }
-                    &.strong { background-color: $yellow-300; border-color: $yellow-300; }
+                    &.strong { background-color: $green-200; border-color: $green-200; }
                 }
             }   
         }

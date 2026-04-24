@@ -45,6 +45,12 @@
       return
     }
 
+    const requiredChars = activeSets.length;
+    if (settings.characterlength < requiredChars) {
+      password.value = ''
+      return
+    }
+
     const result = []
 
     activeSets.forEach(set => {
@@ -77,10 +83,16 @@
       settings.includeSymbols
     ].filter(Boolean).length;
 
-    if (settings.characterlength >= 8) score++;
-    if (settings.characterlength >= 12) score++;
-    if (activeCategories >= 2) score++;
-    if (activeCategories >= 3) score++;
+    const isValidConfig = settings.characterlength >= activeCategories && activeCategories > 0
+    if (!isValidConfig) return { label: '', score: 0 };
+
+    if (settings.characterlength >= 8) score += 1
+    if (settings.characterlength >= 10) score += 1
+    if (settings.characterlength >= 14) score += 2
+    if (activeCategories >= 2) score += 1
+    if (activeCategories >= 3) score += 1
+
+    score = Math.min(score, 4)
 
     const ratings = [
       { label: 'TOO WEAK', score: 1 },
@@ -92,11 +104,35 @@
     return ratings[Math.max(0, score - 1)];
   });
 
+  const copySuccess = ref(false)
+
+const copyToClipboard = async () => {
+  if (!password.value) return
+  
+  try {
+    await navigator.clipboard.writeText(password.value)
+   
+    copySuccess.value = true
+
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 2000)
+    
+  } catch (err) {
+    console.error('Kunne ikke kopiere', err)
+  }
+}
+
+
 </script>
 
 <template>
     <Header/>
-    <Password :password="password"/>
+    <Password 
+      :password="password"
+      :is-copied="copySuccess"
+      @copy="copyToClipboard"
+    />
   <main>
     <Slider v-model="settings.characterlength" :slider-max="20" />
     <Tickoff v-bind="settings" @update="handleUpdate"/>    

@@ -73,6 +73,10 @@
             top: 0rem;
             left: 0.25rem;
         }
+        input[type="checkbox"]:focus-visible {
+            outline: 2px solid $green-200;
+            outline-offset: 2px;
+        }
     }
 
     @media (max-width: 600px) {

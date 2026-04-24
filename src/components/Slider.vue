@@ -126,8 +126,9 @@
             background: $grey-850;
             border: 2px solid $green-200;
         }
-        .custom-slider:focus {
-            outline: none;
+        .custom-slider:focus-visible {
+            outline: 2px solid $green-200;
+            outline-offset: 2px;
         }
         .custom-slider::-moz-focus-outer, .custom-slider::-moz-focus-inner {
             border: 0;
