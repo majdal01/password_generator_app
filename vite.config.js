@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
+    base: '/password_generator_app/',
   css: {
       preprocessorOptions: {
         scss: {
