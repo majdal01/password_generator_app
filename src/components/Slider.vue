@@ -29,7 +29,7 @@
         <div class="sliderlabel-container">
             <h2 id="character-length-label">Character Length</h2>
             <label for="characterLength">
-                <span>{{ props.modelValue }}</span>
+                <span>{{ modelValue }}</span>
             </label>
         </div>
             <input
@@ -37,8 +37,8 @@
                 type="range"
                 aria-labelledby="character-length-label"
                 min="0"
-                :max="props.sliderMax"
-                :value="props.modelValue"
+                :max="sliderMax"
+                :value="modelValue"
                 @input="emit('update:modelValue', Number($event.target.value))"
                 class="custom-slider"
             >
