@@ -1,5 +1,5 @@
 <script setup>
-    const { label, score } = defineProps({
+    const props = defineProps({
         label: String,
         score: Number
     })
