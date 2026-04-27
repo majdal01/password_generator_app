@@ -1,5 +1,8 @@
 <script setup>
-    const props = defineProps({
+    const {
+        label,
+        score
+    } = defineProps({
         label: String,
         score: Number
     })
@@ -11,7 +14,7 @@
     <div class="strength-container">
         <p id="strengthp">Strength</p>
         <div class="validator-container">
-              <p class="mediump" id="strength-status" aria-live="polite" aria-atomic="true">{{props.label}}</p>
+                            <p class="mediump" id="strength-status" aria-live="polite" aria-atomic="true">{{ label }}</p>
               <div class="color-container">
                 <div 
                     v-for="i in 4" 
