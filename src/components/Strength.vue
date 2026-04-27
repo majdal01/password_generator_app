@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <button @click="emit('generate')" id="generate-button">Generate <span><img class="arrow" src="/assets/images/icon-arrow-right.svg" alt="" aria-hidden="true"></span></button>
+    <button type="button" @click="emit('generate')" id="generate-button">Generate <span><img class="arrow" src="/assets/images/icon-arrow-right.svg" alt="" aria-hidden="true"></span></button>
 </template>
 
 

@@ -22,7 +22,7 @@ const handleCopy = () => {
 
         <div class="copy-wrapper">
                 <span class="copy-feedback" aria-live="polite" aria-atomic="true">{{isCopied ? 'COPIED' : ''}}</span>
-                <button class="copy-btn" @click="handleCopy" :disabled="!password" aria-label="Copy Password">
+                <button type="button" class="copy-btn" @click="handleCopy" :disabled="!password" aria-label="Copy Password">
                     <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="" aria-hidden="true">
                 </button>
         </div>

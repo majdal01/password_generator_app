@@ -1,6 +1,4 @@
 <script setup>
-    import { ref } from 'vue'
-
     defineProps ({
         includeUppercase: Boolean,
         includeLowercase: Boolean,
@@ -16,17 +14,17 @@
     <fieldset class="tickoff-group">
         <legend class="sr-only">Character Options</legend>
         <section class="tickoff-container">
-            <label for="uppercase">
-                <input type="checkbox" value="uppercase" id="uppercase" :checked="includeUppercase" @change="emit('update', { includeUppercase: $event.target.checked })" /> Include Uppercase Letters
+            <label>
+                <input type="checkbox" value="uppercase" :checked="includeUppercase" @change="emit('update', { includeUppercase: $event.target.checked })" /> Include Uppercase Letters
             </label>
-            <label for="lowercase">
-                <input type="checkbox" value="lowercase" id="lowercase" :checked="includeLowercase" @change="emit('update', { includeLowercase: $event.target.checked })" /> Include Lowercase Letters
+            <label>
+                <input type="checkbox" value="lowercase" :checked="includeLowercase" @change="emit('update', { includeLowercase: $event.target.checked })" /> Include Lowercase Letters
             </label>
-            <label  for="numbers">
-                <input type="checkbox" value="numbers" id="numbers" :checked="includeNumbers" @change="emit('update', { includeNumbers: $event.target.checked })" /> Include Numbers
+            <label>
+                <input type="checkbox" value="numbers" :checked="includeNumbers" @change="emit('update', { includeNumbers: $event.target.checked })" /> Include Numbers
             </label>
-            <label for="symbols">
-                <input type="checkbox" value="symbols" id="symbols" :checked="includeSymbols" @change="emit('update', { includeSymbols: $event.target.checked })" /> Include Symbols
+            <label>
+                <input type="checkbox" value="symbols" :checked="includeSymbols" @change="emit('update', { includeSymbols: $event.target.checked })" /> Include Symbols
             </label>
         </section>
     </fieldset>

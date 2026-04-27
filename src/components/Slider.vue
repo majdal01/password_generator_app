@@ -40,9 +40,6 @@
                 :max="props.sliderMax"
                 :value="props.modelValue"
                 @input="emit('update:modelValue', Number($event.target.value))"
-                :style="{
-                    background: sliderBackground
-                }"
                 class="custom-slider"
             >
     </div>
@@ -71,16 +68,18 @@
             -moz-appearance: none;
             appearance: none;
             height: 0.5rem;
-            background: $grey-850;
-            transition: background 0.3s;
+            background: transparent;
         }
         .custom-slider::-webkit-slider-runnable-track {
             height: 0.5rem;
             border-radius: 0.25rem;
+            background: v-bind(sliderBackground);
+            transition: background 0.3s;
         }
         .custom-slider::-moz-range-track {
             height: 0.5rem;
             border-radius: 0.25rem;
+            background-color: $grey-850;
         }
         .custom-slider::-ms-fill-lower,
         .custom-slider::-ms-fill-upper {
@@ -138,11 +137,6 @@
         // For Firefox progress color
         .custom-slider::-moz-range-progress {
             background-color: $green-200;
-            height: 0.5rem;
-            border-radius: 0.25rem;
-        }
-        .custom-slider::-moz-range-track {
-            background-color: $grey-850;
             height: 0.5rem;
             border-radius: 0.25rem;
         }
