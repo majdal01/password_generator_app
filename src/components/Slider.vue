@@ -1,10 +1,7 @@
 <script setup>
     import { computed } from 'vue'
 
-    const {
-        modelValue,
-        sliderMax
-    } = defineProps({
+    const props = defineProps({
         modelValue: {
             type: Number,
             required: true
@@ -21,7 +18,7 @@
     const inactiveTrackColor = '#18171F'
 
     const sliderBackground = computed(() => {
-        const percentage = (modelValue / sliderMax) * 100
+        const percentage = (props.modelValue / props.sliderMax) * 100
         return `linear-gradient(to right, ${activeTrackColor} 0%, ${activeTrackColor} ${percentage}%, ${inactiveTrackColor} ${percentage}%, ${inactiveTrackColor} 100%)`
     })
 </script>
@@ -32,7 +29,7 @@
         <div class="sliderlabel-container">
             <h2 id="character-length-label">Character Length</h2>
             <label for="characterLength">
-                <span>{{ modelValue }}</span>
+                <span>{{ props.modelValue }}</span>
             </label>
         </div>
             <input
@@ -40,8 +37,8 @@
                 type="range"
                 aria-labelledby="character-length-label"
                 min="0"
-                :max="sliderMax"
-                :value="modelValue"
+                :max="props.sliderMax"
+                :value="props.modelValue"
                 @input="emit('update:modelValue', Number($event.target.value))"
                 class="custom-slider"
             >
