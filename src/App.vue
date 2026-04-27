@@ -135,7 +135,13 @@ const copyToClipboard = async () => {
     />
   <main>
     <Slider v-model="settings.characterlength" :slider-max="20" />
-    <Tickoff v-bind="settings" @update="handleUpdate"/>    
+    <Tickoff
+        :include-uppercase="settings.includeUppercase"
+        :include-lowercase="settings.includeLowercase"
+        :include-numbers="settings.includeNumbers"
+        :include-symbols="settings.includeSymbols"
+        @update="handleUpdate"
+        />    
     <Strength 
       :score="strengthRating.score" 
       :label="strengthRating.label" 
