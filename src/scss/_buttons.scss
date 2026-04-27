@@ -17,6 +17,9 @@
         background-color: transparent;
         color: $green-200;
         border: 1px solid $green-200;
+        .arrow {
+            color: $green-200;
+        }
     }
 
     &:focus-visible {
