@@ -1,8 +1,5 @@
 <script setup>
-    const {
-        label,
-        score
-    } = defineProps({
+    const props = defineProps({
         label: String,
         score: Number
     })
@@ -14,18 +11,18 @@
     <div class="strength-container">
         <p id="strengthp">Strength</p>
         <div class="validator-container">
-                            <p class="mediump" id="strength-status" aria-live="polite" aria-atomic="true">{{ label }}</p>
+                            <p class="mediump" id="strength-status" aria-live="polite" aria-atomic="true">{{ props.label }}</p>
               <div class="color-container">
                 <div 
                     v-for="i in 4" 
                     :key="i" 
                     class="bar"
                     :class="{ 
-                        'active': i <= score,
-                        'too-weak': score === 1 && i <= score,
-                        'weak': score === 2 && i <= score,
-                        'medium': score === 3 && i <= score,
-                        'strong': score === 4 && i <= score
+                        'active': i <= props.score,
+                        'too-weak': props.score === 1 && i <= props.score,
+                        'weak': props.score === 2 && i <= props.score,
+                        'medium': props.score === 3 && i <= props.score,
+                        'strong': props.score === 4 && i <= props.score
                     }"
                 ></div>
             </div>
