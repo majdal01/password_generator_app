@@ -27,13 +27,15 @@
 
     <div>
         <div class="sliderlabel-container">
-            <h2>Character Length</h2>
-            <label>
+            <h2 id="character-length-label">Character Length</h2>
+            <label for="characterLength">
                 <span>{{ props.modelValue }}</span>
             </label>
         </div>
             <input
+                id="characterLength"
                 type="range"
+                aria-labelledby="character-length-label"
                 min="0"
                 :max="props.sliderMax"
                 :value="props.modelValue"

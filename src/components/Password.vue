@@ -21,9 +21,9 @@ const handleCopy = () => {
         <p v-else class="placeholder">P4$$W0rD!</p>
 
         <div class="copy-wrapper">
-                <span v-if="isCopied" class="copy-feedback">COPIED</span>
+                <span class="copy-feedback" aria-live="polite" aria-atomic="true">{{isCopied ? 'COPIED' : ''}}</span>
                 <button class="copy-btn" @click="handleCopy" :disabled="!password" aria-label="Copy Password">
-                    <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="Copy Icon">
+                    <img id="copy-icon" src="/assets/images/icon-copy.svg" alt="" aria-hidden="true">
                 </button>
         </div>
     </div>

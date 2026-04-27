@@ -11,7 +11,7 @@
     <div class="strength-container">
         <p id="strengthp">Strength</p>
         <div class="validator-container">
-              <p id="mediump">{{props.label}}</p>
+              <p class="mediump" id="strength-status" aria-live="polite" aria-atomic="true">{{props.label}}</p>
               <div class="color-container">
                 <div 
                     v-for="i in 4" 
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <button @click="emit('generate')" id="generate-button">Generate <span><img src="/assets/images/icon-arrow-right.svg" alt="generate"></span></button>
+    <button @click="emit('generate')" id="generate-button">Generate <span><img src="/assets/images/icon-arrow-right.svg" alt="" aria-hidden="true"></span></button>
 </template>
 
 
@@ -48,7 +48,7 @@
             letter-spacing: 5%;
             color: $grey-600;
         }
-        #mediump {
+        .mediump {
             @include text-preset-2;
             text-transform: uppercase;
             letter-spacing: 5%;
@@ -94,7 +94,7 @@
             gap: $spacing-100;
             padding: $spacing-200;
 
-            #mediump {
+            .mediump {
                 @include text-preset-3;
             }
 
