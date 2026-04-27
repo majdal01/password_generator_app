@@ -13,8 +13,8 @@
 </script>
 
 <template>
-    <fieldset class="tickoff-container">
-        <legend class="tickoff-legend">Character Options</legend>
+    <fieldset class="tickoff-group">
+        <legend class="sr-only">Character Options</legend>
         <section class="tickoff-container">
             <label for="uppercase">
                 <input type="checkbox" value="uppercase" id="uppercase" :checked="includeUppercase" @change="emit('update', { includeUppercase: $event.target.checked })" /> Include Uppercase Letters
@@ -34,6 +34,25 @@
 </template>
 
 <style lang="scss">
+
+    .tickoff-group {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-inline-size: 0;
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    }
 
     .tickoff-container {
         display: flex;
